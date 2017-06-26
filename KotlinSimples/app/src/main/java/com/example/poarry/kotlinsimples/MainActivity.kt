@@ -2,6 +2,7 @@ package com.example.poarry.kotlinsimples
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.poarry.kotlinsimples.model.ItemBean
 
 class MainActivity : AppCompatActivity() {
 
@@ -102,44 +103,70 @@ class MainActivity : AppCompatActivity() {
          * use ranges
          */
         printString("use ranges")
-        val x=10
-        val y=32
-        if (x in  1..y ){
+        val x = 10
+        val y = 32
+        if (x in 1..y) {
             printString("x in y ranges")
-        }else{
+        } else {
             printString("s not in y ranges")
         }
 
-        if (-1 !in 0..list.lastIndex){
+        if (-1 !in 0..list.lastIndex) {
             printString("-1 is out of list size ranges")
         }
 
 
         printString("==============Iterating over a range:========")
-        for (index in 0..5){
+        for (index in 0..5) {
             printInt(index)
         }
         printString("==============Iterating over a progression:========")
         for (index in 0..10 step 3)
             println(index)
         printString("==============Iterating over a progression downTo:========")
-        for (index in 12 downTo 0 step 3){
+        for (index in 12 downTo 0 step 3) {
             println(index)
         }
         printString("==============Iterating over a progression until:========")
-        for (index in 0 until 13 step 2){
+        for (index in 0 until 13 step 2) {
             println(index)
         }
 
         /**
          * use Collections
          */
-        val items= setOf("apple","banana","orange")
-        when{
+        val items = setOf("apple", "banana", "orange")
+        when {
             "peak" in items -> println("juicy")
-            "apple" in items-> println("apple is fine too")
+            "apple" in items -> println("apple is fine too")
         }
 
+        /**
+         * Data Classes
+         */
+        println("Data Classes")
+        data class User(val name: String, val age: Int)
+
+        val user = User("Poarry", 2)
+        val itemBean = ItemBean("Poarry", 0xf)
+        itemBean.id
+        printString("user named ${user.name} age info is  ${user.age}")
+        printString("itemBean named ${itemBean.name} has id ${itemBean.id}")
+        //Default values for function parameters
+        data class Bean(var name:String ="default",var money:Int =123)
+        val  bean = Bean()
+        printString("itemBean named ${bean.name} has money ${bean.money}")
+
+
+
+        val map = mapOf("a" to 1,"b" to "two",3 to "c")
+        //access map
+        println(map["a"])
+        println(map["d"])
+        //lazy property
+       /* val lazyX :String by lazy {
+
+        }*/
     }
 
 
