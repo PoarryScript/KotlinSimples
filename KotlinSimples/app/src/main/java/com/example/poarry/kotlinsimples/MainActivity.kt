@@ -3,6 +3,7 @@ package com.example.poarry.kotlinsimples
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.poarry.kotlinsimples.model.ItemBean
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -164,11 +165,35 @@ class MainActivity : AppCompatActivity() {
         println(map["a"])
         println(map["d"])
         //lazy property
-       /* val lazyX :String by lazy {
+      /* val lazyX : String by Lazy{
 
         }*/
+        var  name="my name is computer"
+      var result =   name.spaceToCamelCase()
+        println("-=====>"+name.spaceToCamelCase())
+
+        printString("Single instance :"+Resourse.name)
+
+        val file = File("fileTest").listFiles()
+        println(file?.size?:"empty")
+
+
+        val data= mapOf("base" to 2,"kotlin" to "learn","math" to "study","email" to "ssss")
+       val  email=data["email"]?:throw IllegalAccessException("Email is missing")
+        println(email)
+
+    }
+    fun String.spaceToCamelCase(){
+      for (pos in 1..length-1){
+          if (length%pos==0)
+          toUpperCase()
+      }
     }
 
+
+    object Resourse{
+        var name = "single instance"
+    }
 
     fun printInt(newValue: Int) {
         println("value is" + newValue)
