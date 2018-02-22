@@ -1,11 +1,14 @@
 package com.example.poarry.kotlinsimples
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.poarry.kotlinsimples.model.ItemBean
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
+
+      activity: Activity
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -181,8 +184,17 @@ class MainActivity : AppCompatActivity() {
         val data= mapOf("base" to 2,"kotlin" to "learn","math" to "study","email" to "ssss")
        val  email=data["email"]?:throw IllegalAccessException("Email is missing")
         println(email)
+        var one_milion=10_000_00
 
+
+        println(one_milion)
+
+  var intValue = 22
+        println(intValue.customSum(100))
     }
+    fun Int.customSum(value:Int):Int=this+value
+
+
     fun String.spaceToCamelCase(){
       for (pos in 1..length-1){
           if (length%pos==0)

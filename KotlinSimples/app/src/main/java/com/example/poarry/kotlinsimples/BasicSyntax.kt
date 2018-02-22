@@ -6,6 +6,8 @@ package com.example.poarry.kotlinsimples
 
 class BasicSyntax {
 
+    companion object new
+
     fun main(args: Array<String>) {
 
         val a = 1
